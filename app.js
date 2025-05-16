@@ -127,3 +127,75 @@ console.log(isLoggedInOrSubscribed(`Logged_Out`, `Subscribed`))
 
 //Medium Challenges
 
+//1. Given two values, return the first pne if it's falsy, otherwise return the second
+
+function falsyOrTruthy(val1, val2){
+    return !val1 ? val1 : val2;
+}
+
+console.log(falsyOrTruthy(0,`0`))
+
+//2. Given an array, return its length
+
+function arrLength(arr){
+    return arr.length
+}
+
+console.log(arrLength([1,2,3,4]))
+
+//3. Given an array, return the last element
+
+function lastElem (arr){
+    return arr[arr.length - 1]
+}
+
+console.log(lastElem([`dog`, `cat`, `ball`]))
+
+//4. Given an array, return the sum of every element
+
+function arrSum (arr){
+    let sum = 0
+    for (let i = 0; i < arr.length; ++i){
+        sum = sum + arr[i]
+    }
+    return sum
+}
+
+console.log(arrSum([2,2,2]))
+
+//5. Given a number, add up all the numbers from one to
+//the number that is given
+//ex: an input of 4 will give you 1 + 2 + 3 + 4 = 10
+
+function progressiveSum(num){
+    let sum = 0
+    for (let i = 1; i <= num; ++i){
+        sum = sum + i
+    }
+    return sum
+}
+
+console.log(progressiveSum(4))
+
+//6. Given a number in seconds, return number in mm:ss format
+
+function calcTime(sec){
+    let min = Math.floor(sec / 60)
+    let seconds = sec % 60
+    if (min.toString().length === 1){
+        min = `0` + min
+    }
+    return min +`:`+ seconds
+}
+
+console.log(calcTime(130))
+
+//7. Given an array of numbers, return the largest number of that array
+
+function getMax(arr){
+    for (let i = 0; i < arr.length; ++i){
+        console.log(arr[i])
+    }
+}
+
+console.log(getMax([-100, -200, -300]))
