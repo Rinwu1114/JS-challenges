@@ -193,9 +193,105 @@ console.log(calcTime(130))
 //7. Given an array of numbers, return the largest number of that array
 
 function getMax(arr){
+    let max = arr[0]
     for (let i = 0; i < arr.length; ++i){
-        console.log(arr[i])
+      if (arr[i] > max){
+        max = arr[i]
+      }
     }
+    return max
 }
 
 console.log(getMax([-100, -200, -300]))
+
+//8. Given a string, return the reversed string
+
+function reverseString(str){
+    let reversedString = ``
+    for (let i = 0; i < str.length; ++i){
+        reversedString = str[i] + reversedString
+    }
+    return reversedString
+}
+// .split(``) = string to array
+// .reverse() = reverses an array
+// .join(``) = array to string
+console.log(reverseString(`hello world`))
+
+//9. Given an array, return the same length array filled with 0
+
+//for loop solution
+function convertToZero1(arr){
+    let newarr = []
+    for (let i = 0; i < arr.length; ++i){
+        newarr[i] = 0
+    }
+    return newarr
+}
+
+//array `fill` solution
+
+function convertToZero2 (arr) {
+    return new Array(arr.length).fill(0)
+}
+
+//array .map solution
+
+function convertToZero3(arr){
+    let newarr = arr.map(elem => 0)   
+    return newarr
+}
+//map converts everything into the right
+//with {} you need to add return, if not it has a invisible return in there
+console.log(convertToZero3([5, 100, 0]))
+
+//10. Given an array of fruits, if it is an apple, remove it
+
+// for loop solution
+
+function removeApples1(arr){
+    let noApples = []
+    for (let i = 0; i < arr.length; ++i){
+        if(arr[i] !== `Apple`)
+            noApples.push(arr[i])
+    }
+    return noApples
+}
+
+//array filter solution
+
+function removeApples2(arr){
+    return arr.filter(elem =>
+         elem !== `Apple`)
+
+}
+
+console.log(removeApples2([`Banana`,`Apple`,`Orange`,`Apple`]))
+
+//11. Given an array of values, filter out all falsy values and only return truthy ones
+
+// for loop solution
+function filterOutFalsy1(arr){
+    let noFalsy = []
+    for (let i = 0; i < arr.length; ++i){
+        if (!!arr[i] === true)
+            noFalsy.push(arr[i])
+    }
+    return noFalsy
+}
+
+//filter solution
+function filterOutFalsy2(arr){
+    return arr.filter(elem => !!elem === true)
+}
+
+console.log(filterOutFalsy1([``, [], 0, null, undefined, `0`]))
+
+//12. Given an arry of truthy and falsy values, return the same array of elements into its boolean value
+
+function convertToBoolean(arr){
+    return arr.map(elem => !!elem)
+}
+
+
+console.log(convertToBoolean([500, 0 , `Hello`, []]))
