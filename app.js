@@ -295,3 +295,79 @@ function convertToBoolean(arr){
 
 
 console.log(convertToBoolean([500, 0 , `Hello`, []]))
+
+//Adavanced challenge
+
+//1. Given a rating, display a star * for each full rating and a full-stop . for each half rating
+
+function showRating (rate) {
+    let rating = ``
+    for (let i = 0; i < Math.floor(rate); ++i){
+        rating += `*`
+    if (i !== Math.floor(rate) - 1){
+        rating += ` `
+    }
+}
+    if (!Number.isInteger(rate)){
+        rating += ` .`
+    }
+    return rating
+}
+
+console.log(showRating(4.5))
+
+//2. Given an array of numbers, return prices sorted by low to high
+
+function sortLowToHigh (arr){
+    return arr.sort((a, b) => a - b)
+}
+//.sort defaults sorting alphebetically
+console.log(sortLowToHigh([1, 5, 3, 10, 6]))
+
+//3. Given an array of objects, return the prices sorted by high to low
+
+function sortHighToLow (object){
+    return object.sort((a, b) =>
+    b.price - a.price)
+}
+
+console.log(sortHighToLow([
+    {id: 1, price: 50},
+    {id: 2, price: 30},
+    {id: 3, price: 60},
+    {id: 4, price: 10}
+])
+)
+
+//4. Watch these videos about promises
+//The Async Episode I Promised - Fireship
+//Async Await JavaScript ES7 - Techsith
+//Async JS Crash Course - Callbakcs, Promises, Async Await - Travsery Media
+
+//5. Call this API, and retrn all the posts by any given user ID
+
+async function postsByUser(userid){
+    const promise = await fetch(`https://jsonplaceholder.typicode.com/posts`);
+    
+    const result = await promise.json()
+    
+    const posts = result.filter(elem => elem.userId === userid)
+    
+    console.log(posts)
+}
+
+postsByUser(4)
+
+//6. Call this API, and return the first 6 incomplete ToDos
+
+async function firstSixIncomplete (todo) {
+    const promise = await fetch (`https://jsonplaceholder.typicode.com/todos`)
+
+    const result = await promise.json()
+
+    const incomplete = result.filter(elem => elem.completed === todo).slice(0, 6)
+
+    console.log(incomplete)
+}
+
+firstSixIncomplete (false)
